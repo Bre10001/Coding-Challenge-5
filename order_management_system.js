@@ -7,3 +7,5 @@ const inventory = [
     { name: 'Mocha', price: 5, quantity: 5 }
 ]; //initializing inventory array
 
+// Task 2: Orders Array of Order Objects
+let orders = []; //initailize empty orders array
