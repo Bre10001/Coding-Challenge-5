@@ -68,3 +68,21 @@ function completeOrder(customerName) {  // takes a customer's name and updates t
 // Example usage of completeOrder function:
 completeOrder('Alice');
 completeOrder('Bob'); // Error due to no order for Jane
+
+// Task 6: Check Pending Orders
+
+function checkPendingOrders() { //  function iterates over the orders array and logs details of all orders that are still marked as 'Pending'.
+    orders.forEach(order => {
+        if (order.status === 'Pending') {
+            console.log(`Pending Order for ${order.customerName}:`);
+            console.log("Items:");
+            order.items.forEach(item => {
+              console.log(`  - ${item.name}: ${item.quantity}`);
+            });
+            console.log(`Status: ${order.status}\n`);
+          }
+        });
+}
+
+// Example:
+checkPendingOrders(); // Logs all pending orders
