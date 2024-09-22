@@ -23,9 +23,31 @@ function placeOrder(customerName, orderedItems){
 
 };
 
+
 orders.push({
-    customerName: customerName,
-    items: orderedItems,
-    status: "Pending"
-  });   // Add an order to the orders array with status 'Pending'
-    
+  customerName: "Alice ",  // Name of the customer
+  items: [                        // Array of products ordered
+    { name: "Espresso", quantity: 2 },
+    { name: "Latte", quantity: 1 }
+  ],
+  status: "Pending"               // The status of the order
+});
+
+console.log(`Order placed successfully for ${orders[orders.length - 1].customerName}.`);
+
+// Task 4: Function to Calculate Total for an Order
+
+function calculateOrderTotal(order) { // accepts an order object and calculates the total amount by summing up the prices of all ordered items.
+    let total = 0;
+    order.items.forEach(item => {
+        const product = inventory.find(p => p.name === item.name); // Find product in inventory
+        if (product) {
+            total += product.price * item.quantity; // Add price of product multiplied by quantity to the total
+        }
+    });
+    return total; // Returns the total price for the order
+}
+
+// Example
+const order = orders[0]; // first order
+console.log(`Total for ${order.customerName}'s order: $${calculateOrderTotal(order)}`);
